@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "python/01-rabbitmq-consumer.md",
+            "file": "camunda/01-calling-rabbitmq-from-camunda.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/01-rabbitmq-consumer.md",
+                "file": "camunda/01-calling-rabbitmq-from-camunda.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,12 +88,12 @@
   },
   "active": "08766da11bedb013",
   "lastOpenFiles": [
+    "camunda/01-calling-rabbitmq-from-camunda.md",
     "python/01-rabbitmq-consumer.md",
     "camunda/00-camunda-toc.md",
     "python/00-python-toc.md",
     "README.md",
     "rabbitmq/01-installation.md",
-    "rabbitmq/00-rabbitmq-toc.md",
-    "camunda/01-calling-rabbitmq-from-camunda.md"
+    "rabbitmq/00-rabbitmq-toc.md"
   ]
 }

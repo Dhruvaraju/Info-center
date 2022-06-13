@@ -83,5 +83,6 @@ public class TestRunnerAQMPConfig {
 ### Attaching the delegate to a service task
 - Under implementation we need to choose type as `delegate expression`
 -  Under Delegate expression we need to write the delegate name as `#className`
-	-   Class name should start with small letter, eventhough in the actual code it started with capitak case.
-![[serivce-task-delegate.png]]
+	-   Class name should start with small letter, eventhough in the actual code it started with capital case.
+
+![serivce-task-delegate.png](images/serivce-task-delegate.png)
