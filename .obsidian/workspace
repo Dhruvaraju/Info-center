@@ -4,13 +4,13 @@
     "type": "split",
     "children": [
       {
-        "id": "08766da11bedb013",
+        "id": "b44993648ad30ccd",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "README.md",
-            "mode": "preview"
+            "mode": "source"
           }
         }
       }
@@ -86,9 +86,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "08766da11bedb013",
+  "active": "b44993648ad30ccd",
   "lastOpenFiles": [
     "README.md",
+    "Untitled.md",
     "camunda/01-calling-rabbitmq-from-camunda.md",
     "python/01-rabbitmq-consumer.md",
     "camunda/00-camunda-toc.md",
