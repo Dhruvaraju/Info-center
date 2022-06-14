@@ -1,6 +1,12 @@
 ### Message Queue Consumer with python
 #rabbitmq
 
+For Creating a consumer from rabbitmq a package called pika is used.
+- Define a connection.
+- Mention the queue that you would like to listen to.
+- Create a function which should be executed when message is received.
+- You can choose to acknowledge back immediatley or acknowledge back after processing.
+
 ```python
 import os  
 import pika  
