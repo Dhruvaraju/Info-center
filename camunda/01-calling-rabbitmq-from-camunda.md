@@ -1,6 +1,6 @@
 ## Calling RabbitMQ queues from camunda
 ### Dependencies
-We require **spring-boot-starter-amqp** dependency, Add the belwo entry in `om .xml`
+We require **spring-boot-starter-amqp** dependency, Add the belwo entry in `pom .xml` #amqp-dependency
 
 ```xml
 <dependency>  
@@ -11,6 +11,7 @@ We require **spring-boot-starter-amqp** dependency, Add the belwo entry in `om .
 
 ### properties
 In application.properties or application.yml we need to add the following entries
+#rabbitmq-properties
 
 ```yml
 rabbitmqHost: localhost  
