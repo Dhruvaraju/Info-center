@@ -1,2 +1,2 @@
 ### Table of Contents
-- [Installation](01-installation)
+- [Installation](01-installation.md)
