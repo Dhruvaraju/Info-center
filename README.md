@@ -6,3 +6,4 @@
 - [Terraform](terraform/00-terraform-toc.md)
 - [General topics](general/00-general-toc.md)
 - [Humane Code](general/01-humane-code.md)
+- [Ansible](ansible/00-ansible-toc.md)
