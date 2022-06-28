@@ -7,3 +7,4 @@
 - [General topics](general/00-general-toc.md)
 - [Humane Code](general/01-humane-code.md)
 - [Ansible](ansible/00-ansible-toc.md)
+- [Openapi](openapi/00-openapi-toc.md)
