@@ -16,8 +16,7 @@ java -jar jenkins.war
 
 ![Admin Screen](images/admin-pwd.png)
 
->[!Note]
-> On the plugins screen choose 'Install Suggested Plug-ins'
+>[!Note] On the plugins screen choose 'Install Suggested Plug-ins'
 
 - It will take sometime and install those plugins.
 - On the Create admin user page add your credentials which will be used to log in to Jenkins from next time.
