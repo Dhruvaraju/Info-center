@@ -89,5 +89,168 @@ pipeline {
 > Polling requires time as input in cron syntax
 > We can get help for cron syntax from https://crontab.guru/ #cron_tab
 
-#TODO
-#Parameterized_pipeline
+### Parameterized pipelines
+- We can add parameters to pipelines, Which can then be read as variables in each stage.
+- A new section `parameters` will be added to Jenkinsfile
+#### Boolean Var
+- Boolean variables can be added using a function `booleanParam(defaultValue: false, description:"Enable Info", name: "myBoolean")`
+- A default value true or false can be provided
+- Description is to define what we are using the variable for.
+- name specifies the name of variable
+- We can access the variable by using `${variable_name}` syntax
+**Example:**
+```
+pipeline{
+    agent any
+    parameters{
+        booleanParam(defaultValue: false, description:"Enable Info", name: "myBoolean")
+    }
+    stages{
+        stage("Clean Up"){
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Log Variable"){
+            steps{
+                echo "Value of boolean set to ${params.myBoolean}"
+            }
+        }
+    }
+}
+```
+
+#### String Var
+- String variables can be added using a function `string(defaultValue: "TEST", description:"Deployment Environment", name: "deployEnv")`
+- A default value can be provided
+- Description is to define what we are using the variable for.
+- name specifies the name of variable
+- We can access the variable by using `${variable_name}` syntax
+**Example:**
+```
+pipeline{
+    agent any
+    parameters{
+        string(defaultValue: "TEST", description:"Deployment Environment", name: "deployEnv")
+    }
+    stages{
+        stage("Clean Up"){
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Log Variable"){
+            steps{
+                echo "Value of boolean set to ${params.deployEnv}"
+            }
+        }
+    }
+}
+```
+
+#### Choice Var
+- String variables can be added using a function `choice(choices: ["TEST"], description:"Deployment Environment", name: "deployEnv")`
+- A default value is the first one in list.
+- Description is to define what we are using the variable for.
+- name specifies the name of variable
+- We can access the variable by using `${variable_name}` syntax
+**Example:**
+```
+pipeline{
+    agent any
+    parameters{
+        choice(choices: ["TEST", "PROD", "UAT"], description:"Deployment Environment", name: "deployEnv")
+    }
+    stages{
+        stage("Clean Up"){
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Log Variable"){
+            steps{
+                echo "Value of boolean set to ${params.deployEnv}"
+            }
+        }
+    }
+}
+```
+
+### Variables
+- We can define own variables and use them in pipelines.
+- We use environment section for it.
+- Use `def` keyword to define a variables
+- These can be accessed by using `${var_name}`
+
+```
+pipeline{
+    agent any
+    environment{
+        def stringVar = "This is a string var"
+        def booleanVar = true
+        def numberVar = 20
+    }
+    stages{
+        stage("Log Variables"){
+            steps{
+                echo "String var value is ${stringVar}"
+                echo "boolean var value is ${booleanVar}"
+                echo "Number var value is ${numberVar}"
+            }
+        }
+    }
+}
+```
+
+> [!Info] Jenkins Environment Variables
+> Jenkins have its own variable names which can be used to access build parameters.
+> These can are accessible at https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables
+
+### If statements
+- When we need some logic in stages we need to add it inside script
+- An implementation of if condition is explained below.
+
+```
+pipeline{
+    agent any
+    parameters{
+        booleanParam(defaultValue: false, description: "Example for if condition", name: "deployInfra")
+    }
+    stages{
+        stage("Demo"){
+            steps{
+                script{
+                    if(params.deployInfra == false){
+                        currentBuild.result = "SUCCESS"
+                        return
+                    } else {
+                        echo "booleanParam is set to ${params.deployInfra}"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+### Functions 
+Functions can be used for invoking reusable snippets
+
+```
+pipeline{
+    agent any
+    stages{
+        stage("Demo"){
+            steps{
+                consoleMessage("Example")
+            }
+        }
+    }
+}
+
+def consoleMessage(String message){
+    echo "message: ${message}"
+}
+```
+
+https://www.jenkins.io/doc/pipeline/steps/pipeline-build-step/
