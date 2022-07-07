@@ -254,3 +254,46 @@ def consoleMessage(String message){
 ```
 
 https://www.jenkins.io/doc/pipeline/steps/pipeline-build-step/
+
+### Executing Parallel jobs
+- We can execute parallel jobs on jenkins when we have multiple agents at disposal
+- When we run in same agent the stages will wait until resources are available.
+
+**example**
+```
+pipeline {
+    agent none
+    stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent {
+                        label "windows"
+                    }
+                    steps {
+                        bat "run-tests.bat"
+                    }
+                    post {
+                        always {
+                            junit "**/TEST-*.xml"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    agent {
+                        label "linux"
+                    }
+                    steps {
+                        sh "run-tests.sh"
+                    }
+                    post {
+                        always {
+                            junit "**/TEST-*.xml"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+```
