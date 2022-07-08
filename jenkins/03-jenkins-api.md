@@ -78,3 +78,39 @@ curl http://${BASIC_AUTH}@${JENKINS_ADDRESS}/job/my_pipeline/buildWithParameters
 
 > [!Info] Jenkins Remote access api
 > https://www.jenkins.io/doc/book/using/remote-access-api/
+
+
+### Example Config.xml
+```xml
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;First Build&quot;</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+  </project>
+```
+
+## Postman call to create a job
+- Make a post call `http://localhost:8080/createItem?name=exampleJob`
+- Use basic authorization provide Jenkins username and the api key generated in configure section.
+- Add header `Content-Type` as `text/xml`
+- In the body section choose binary and attach the above config.xml
+- Once you execute the post call, exampleJob should be reflecting in Jenkins.
+- For updating the job use method `update` `/job/<pipeline_name>/config.xml`
+- For deleting the job use method `delete` `/job/<Pipeline_name>/config.xml`
