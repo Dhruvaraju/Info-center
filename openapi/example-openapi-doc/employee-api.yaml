@@ -1,0 +1,197 @@
+openapi: '3.0.2'
+info:
+  title: Employee
+  description: This is a sample server employee management system.
+  termsOfService: https://example.com/terms/
+  contact:
+    name: API Support
+    url: https://www.example.com/support
+    email: support@example.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.1
+servers:
+  - url: https://localhost:{port}/{basePath}
+    description: DEV
+    variables:
+      port:
+        enum:
+          - '9090'
+          - '8080'
+        default: '8080'
+      basePath:
+        default: v1
+  - url: https://{username}.employee.com:{port}/{basePath}
+    description: The production API server
+    variables:
+      username:
+       # note! no enum here means it is an open value
+        default: demo
+        description: this value is assigned by the service provider, in this example `gigantic-server.com`
+      port:
+        enum:
+          - '8443'
+          - '443'
+        default: '8443'
+      basePath:
+        # open meaning there is the opportunity to use special base paths as assigned by the provider, default is `v2`
+        default: v1
+
+paths:
+  /employees:
+    get:
+      description: Get all the employees details.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+        '500':
+          description: Internal Server Error
+        '401':
+          description: Unauthorized
+
+    post:
+      description: Add a new employee to the system.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+        '400':
+          description: Bad request
+  /employee/{id}: 
+    get: 
+      description: Gets a specific employee details based on the employee id.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: EmployeeId of an employee.
+          schema:
+            type: integer
+            example: 245678
+      responses:
+        '200':
+          description: Successful
+          content:
+            application/json:
+              schema: 
+                type: object
+                $ref: "#/components/schemas/Employee"
+
+components:
+  schemas:
+    Employee:
+      description: Defines employee information and fields required
+      required:
+        - "employeeId"
+        - "employeeName"
+
+      properties:
+        employeeId:
+          type: integer
+          example: 245678
+
+        employeeName:
+          type: string
+          example: dexter
+
+        email:
+          type: string
+          format: email
+          example: example@example.com
+
+        previousEmployers:
+          type: array
+          description: Name of previous organization
+          items:
+            type: string
+            example: Normandy Tech
+
+        technology:
+          type: array
+          description: Technology know and expertise in it.
+          items:
+            type: object
+            properties:
+              techName:
+                type: string
+                example: java
+
+              level:
+                type: string
+                enum:
+                  - Novice
+                  - Beginner
+                  - Practitioner
+                  - Expert
+        gitHubUrl:
+          type: string
+          format: url 
+          example: www.github.com/lazydev
+
+        hasExperience:
+          type: boolean
+          example: true
+
+    GeneralError:
+      description: Provides error information
+      properties:
+        errorId:
+          type: integer
+          example: 1001
+        message:
+          type: string
+          example: Details entered are incorrect
+        category:
+          type: string
+          enum:
+            - "User"
+            - "Validation"
+            - "Timeout"
+            - "Network"
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    BearerAuth:
+      type: http
+      scheme: bearer
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+    OpenID:
+      type: openIdConnect
+      openIdConnectUrl: https://example.com/.well-known/openid-configuration
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://example.com/oauth/authorize
+          tokenUrl: https://example.com/oauth/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
+            admin: Grants access to admin operations
+security:
+  - api-key: [ApiKeyAuth]
+
+
+
+        
+
