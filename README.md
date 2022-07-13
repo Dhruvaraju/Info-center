@@ -10,3 +10,4 @@
 - [Openapi](openapi/00-openapi-toc.md)
 - [Json Schema](json-schema/00-json-schema-toc.md)
 - [Linux](linux/00-linux-toc.md)
+- [Gitlab](gitlab/00-gitlab-toc.md)
