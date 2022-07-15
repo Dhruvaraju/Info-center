@@ -3,7 +3,7 @@
 - To create a Jenkins container and use it #docker-cmd-to-start-jenkins
 
 ```commandline
-docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk11
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name jenkins jenkins/jenkins:lts-jdk11
 
 ```
 
@@ -11,6 +11,7 @@ docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins
 >  https://github.com/addamstj/Jenkins-Course
 
 - To get access to a terminal in a docker container use `docker exec -it -u root <container_id> /bin/bash`
+- initial password will be present at `/var/jenkins_home/secrets/initialAdminPassword`
 
 ### Creating a free style Jenkins project
 #freestyle-jenkins-project
