@@ -13,6 +13,9 @@ docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home --name 
 - To get access to a terminal in a docker container use `docker exec -it -u root <container_id> /bin/bash`
 - initial password will be present at `/var/jenkins_home/secrets/initialAdminPassword`
 
+> [!info] Installing additional apps in docker container:
+> https://github.com/Dhruvaraju/docker-alpha/blob/master/installing-apps-in-container.md
+
 ### Creating a free style Jenkins project
 #freestyle-jenkins-project
 - Add new item on Jenkins ui once you log in.
