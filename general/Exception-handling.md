@@ -1,0 +1,1 @@
+While using a controller advice add it to mockmvc to use it in test cases.
