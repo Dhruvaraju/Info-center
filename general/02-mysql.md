@@ -29,3 +29,20 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 spring.jpa.show-sql=true
 spring.jpa.database-platform=org.hibernate.dialect.MySQl8Dialect
 ```
+
+Log in to bash on container use below command:
+```commandline
+docker exec -it -u root mysql /bin/bash
+```
+
+Log in to mysql #login-to-mysql
+```
+mysql -uroot -p
+# provide password here it will be admin
+```
+
+#mysql-commands
+- use `show databases;` to see all databases.
+- `use <<database-name>>` to got to a specific database.
+-  `show tables;` to see all tables.
+-  `desc <<table-name>>;` to see the fields and required values.
