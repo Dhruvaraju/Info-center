@@ -13,3 +13,4 @@
 - [Gitlab](gitlab/00-gitlab-toc.md)
 - [testing](testing/00-testing-toc.md)
 - [maven](maven/00-maven-toc.md)
+- [Workspace-set-up](workspace-setup/00-table-of-contents.md)
