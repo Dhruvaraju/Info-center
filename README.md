@@ -15,3 +15,4 @@
 - [maven](maven/00-maven-toc.md)
 - [Workspace-set-up](workspace-setup/00-table-of-contents.md)
 - [Spring Boot](spring-boot/00-spring-boot-toc.md)
+- [Gerrit](/gerrit/00-gerrit-toc.md)
