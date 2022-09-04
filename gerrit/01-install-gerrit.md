@@ -37,10 +37,10 @@ docker run -d -p 9095:8080 -p 29418:29418 --name gerrit -v git-volume:/var/gerri
 
 After Installing you will get an initial screen as below:
 
-![[gerrit-intro-screen.png]]
+![gerrit intro screen](images/gerrit-intro-screen.png)
 
 On clicking Install plugins, it will shown all the list of plugins, and additional plugins that can be installed.
 Once those are installed you can click on `Done >> Go To Gerrit`.
 
 
-![[gerrit-initial-screen.png]]
+![Gerrit Initial Screen](images/gerrit-initial-screen.png)
