@@ -28,3 +28,19 @@ volumes:
   index-volume:
   cache-volume:
 ```
+
+Docker run command with volumes, the below command runs on port 9095 of host machine.
+
+```commandline
+docker run -d -p 9095:8080 -p 29418:29418 --name gerrit -v git-volume:/var/gerrit/git -v index-volume:/var/gerrit/index -v cache-volume:/var/gerrit/cache gerritcodereview/gerrit
+```
+
+After Installing you will get an initial screen as below:
+
+![[gerrit-intro-screen.png]]
+
+On clicking Install plugins, it will shown all the list of plugins, and additional plugins that can be installed.
+Once those are installed you can click on `Done >> Go To Gerrit`.
+
+
+![[gerrit-initial-screen.png]]
