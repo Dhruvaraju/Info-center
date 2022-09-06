@@ -46,3 +46,9 @@ mysql -uroot -p
 - `use <<database-name>>` to got to a specific database.
 -  `show tables;` to see all tables.
 -  `desc <<table-name>>;` to see the fields and required values.
+
+## Granting permissions on database
+- Log in with mySql with root user `mysql -uroot -p` then provide password.
+- Create a database
+- Use the following command to give all access to an user named as admin ` GRANT ALL PRIVILEGES ON '<your_db_name>' . * TO '<user_name>'`
+- Example: `GRANt ALL PRIVILEGES ON 'test-db' . * TO 'admin'`
