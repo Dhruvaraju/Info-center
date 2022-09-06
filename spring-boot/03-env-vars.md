@@ -1,0 +1,1 @@
+We can set the env vars in intellij by using the edit configurations in run configurations
