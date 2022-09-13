@@ -26,3 +26,10 @@ Provide Branch name and which branch it should be created from, then click creat
 - Click on Create New and provide information and click create
 ![create-tag.png](images/create-tag.png)
 
+## Access Controls
+These are vital parts of security. They enable of the projects and define what users can or cannot do.
+- Controlled per project basis
+- Access controls can be controlled on access settings page for a project.
+- Access controls can be inherited from other projects.
+- They are normally inherited by a project called All Projects by Default, where access settings can be altered for administrator access to all projects created
+- More information on project settings can be found at: https://gerrit-review.googlesource.com/Documentation/access-control.html
