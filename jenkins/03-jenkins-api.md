@@ -114,3 +114,180 @@ curl http://${BASIC_AUTH}@${JENKINS_ADDRESS}/job/my_pipeline/buildWithParameters
 - Once you execute the post call, exampleJob should be reflecting in Jenkins.
 - For updating the job use method `update` `/job/<pipeline_name>/config.xml`
 - For deleting the job use method `delete` `/job/<Pipeline_name>/config.xml`
+
+## Api to get the list of builds
+```
+<jenkins-server-address>/job/<pipeline_name>/api/json
+
+#Example
+http://localhost:8090/job/exampleJob/api/json
+```
+
+**Example Response:**
+```
+{
+
+    "_class": "hudson.model.FreeStyleProject",
+
+    "actions": [
+
+        {},
+
+        {},
+
+        {
+
+            "_class": "org.jenkinsci.plugins.displayurlapi.actions.JobDisplayAction"
+
+        },
+
+        {
+
+            "_class": "com.cloudbees.plugins.credentials.ViewCredentialsAction"
+
+        }
+
+    ],
+
+    "description": "",
+
+    "displayName": "exampleJob",
+
+    "displayNameOrNull": null,
+
+    "fullDisplayName": "exampleJob",
+
+    "fullName": "exampleJob",
+
+    "name": "exampleJob",
+
+    "url": "http://localhost:8090/job/exampleJob/",
+
+    "buildable": true,
+
+    "builds": [
+
+        {
+
+            "_class": "hudson.model.FreeStyleBuild",
+
+            "number": 2,
+
+            "url": "http://localhost:8090/job/exampleJob/2/"
+
+        },
+
+        {
+
+            "_class": "hudson.model.FreeStyleBuild",
+
+            "number": 1,
+
+            "url": "http://localhost:8090/job/exampleJob/1/"
+
+        }
+
+    ],
+
+    "color": "blue",
+
+    "firstBuild": {
+
+        "_class": "hudson.model.FreeStyleBuild",
+
+        "number": 1,
+
+        "url": "http://localhost:8090/job/exampleJob/1/"
+
+    },
+
+    "healthReport": [
+
+        {
+
+            "description": "Build stability: No recent builds failed.",
+
+            "iconClassName": "icon-health-80plus",
+
+            "iconUrl": "health-80plus.png",
+
+            "score": 100
+
+        }
+
+    ],
+
+    "inQueue": false,
+
+    "keepDependencies": false,
+
+    "lastBuild": {
+
+        "_class": "hudson.model.FreeStyleBuild",
+
+        "number": 2,
+
+        "url": "http://localhost:8090/job/exampleJob/2/"
+
+    },
+
+    "lastCompletedBuild": {
+
+        "_class": "hudson.model.FreeStyleBuild",
+
+        "number": 2,
+
+        "url": "http://localhost:8090/job/exampleJob/2/"
+
+    },
+
+    "lastFailedBuild": null,
+
+    "lastStableBuild": {
+
+        "_class": "hudson.model.FreeStyleBuild",
+
+        "number": 2,
+
+        "url": "http://localhost:8090/job/exampleJob/2/"
+
+    },
+
+    "lastSuccessfulBuild": {
+
+        "_class": "hudson.model.FreeStyleBuild",
+
+        "number": 2,
+
+        "url": "http://localhost:8090/job/exampleJob/2/"
+
+    },
+
+    "lastUnstableBuild": null,
+
+    "lastUnsuccessfulBuild": null,
+
+    "nextBuildNumber": 3,
+
+    "property": [],
+
+    "queueItem": null,
+
+    "concurrentBuild": false,
+
+    "disabled": false,
+
+    "downstreamProjects": [],
+
+    "labelExpression": null,
+
+    "scm": {
+
+        "_class": "hudson.scm.NullSCM"
+
+    },
+
+    "upstreamProjects": []
+
+}
+```
