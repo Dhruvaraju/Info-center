@@ -291,3 +291,6 @@ http://localhost:8090/job/exampleJob/api/json
 
 }
 ```
+
+## Jenkins wfapi details
+https://github.com/jenkinsci/pipeline-stage-view-plugin/blob/master/rest-api/README.md
