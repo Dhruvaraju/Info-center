@@ -294,3 +294,8 @@ http://localhost:8090/job/exampleJob/api/json
 
 ## Jenkins wfapi details
 https://github.com/jenkinsci/pipeline-stage-view-plugin/blob/master/rest-api/README.md
+
+For this api to work install pipeline rest plugin.
+
+> [!Info]
+> config.xml for each job is present under the jenkins home directory/jobs/<pipeline_name>
