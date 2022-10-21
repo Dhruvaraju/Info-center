@@ -1,0 +1,1 @@
+https://docs.portainer.io/start/install/server/docker/wsl for installing portainer community edition
