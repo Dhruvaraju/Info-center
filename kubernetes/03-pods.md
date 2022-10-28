@@ -22,8 +22,3 @@ example: `kubectl run nginx --image nginx`
 `kubectl get pods` to get all pods information.
 `kubectl describe pod <pod_name` will provide additional information about the pod
 `kubectl get pods -o wide` will provide additional information about pods like internal ip address
-
-
-
-
-
