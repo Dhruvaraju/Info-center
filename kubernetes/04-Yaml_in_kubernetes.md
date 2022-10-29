@@ -17,7 +17,8 @@ spec:
       image: nginx
 ```
 
-To run this configuration and create a pod use command `kubectl create -f pod-definition.yaml`
+- To run this configuration and create a pod use command `kubectl create -f pod-definition.yaml`
+- We can also use `kubectl apply -f pod-definition.yaml` to get the same result as `create`.
 
 ## significance of each field
 

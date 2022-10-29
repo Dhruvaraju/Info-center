@@ -110,7 +110,7 @@ Initially, some services such as the storage-provisioner, may not yet be in a Ru
 minikube dashboard
 ```
 
-## **4**Deploy applications
+## For Deploy applications
 
 Create a sample deployment and expose it on port 80:
 
@@ -141,9 +141,9 @@ Tada! Your application is now available at [http://localhost:7080/](http://local
 
 You should be able to see the request metadata from nginx such as the `CLIENT VALUES`, `SERVER VALUES`, `HEADERS RECEIVED` and the `BODY` in the application output. Try changing the path of the request and observe the changes in the `CLIENT VALUES`. Similarly, you can do a POST request to the same and observe the body show up in `BODY` section of the output.
 
-### LoadBalancer deployments[](https://minikube.sigs.k8s.io/docs/start/#loadbalancer-deployments)
+### Load Balancer deployments[](https://minikube.sigs.k8s.io/docs/start/#loadbalancer-deployments)
 
-To access a LoadBalancer deployment, use the “minikube tunnel” command. Here is an example deployment:
+To access a Load Balancer deployment, use the “minikube tunnel” command. Here is an example deployment:
 
 ```shell
 kubectl create deployment balanced --image=docker.io/nginx:1.23

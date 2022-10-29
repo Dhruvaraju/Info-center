@@ -17,7 +17,7 @@ No we can add as many containers as we can based on the capacity of a pod. But w
 ### How to deploy pods
 `kubectl run <application-name> --image <image_name>` this will create a new pod, add the container to the pod and bring it up.
 example: `kubectl run nginx --image nginx`
-> The image name mentioned should be present in dockerhub else the entire url where the image can be found need to be provided.
+> The image name mentioned should be present in docker-hub else the entire url where the image can be found need to be provided.
 
 `kubectl get pods` to get all pods information.
 `kubectl describe pod <pod_name` will provide additional information about the pod
