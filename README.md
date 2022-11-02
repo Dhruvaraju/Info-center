@@ -19,4 +19,4 @@ Below are the topics that are added in this obsidian notes.
 - [Gerrit](/gerrit/00-gerrit-toc.md)
 - [Git](git/00-git-toc.md)
 - [Kubernetes](kubernetes/00-kubernetes-toc.md)
-- 
+- [HashiCorp Vault](hashicorp-vault/00-hashicorp-vault-toc.md)
