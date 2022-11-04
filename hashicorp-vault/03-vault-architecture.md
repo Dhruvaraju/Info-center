@@ -43,3 +43,80 @@ As vault is a security software we need audit devices to make sure everything is
 - It is preferred to have more than one audit enabled devices
 	- Vault requires at least one audit device to write the log before completing the Vault request - If an audit device is enabled.
 	- Vault prioritizes safety over availability, meaning if it is not able to write a log due to some issues like insufficient storage for logs it will not respond to request.
+
+## Vault Architecture and Pathing Structure
+
+![vault-architecture](images/vault-architecture.png)
+
+The center part which is encapsulated in the Barrier are the components inside vault. To access vault a HTTP/s api is available, to store data from vault an external storage backend will be used like consul or PostgreSQL or MySQL.
+
+To access Vault the api should get authenticated or it should have a token.
+
+## vault paths
+- Everything in vault is path based
+- Path prefix helps vault to understand which component a request need to be routed.
+- Secret engines, auth methods, and audit devices are mounted at a specified path
+	- These are often referred as a mount.
+- paths available are dependent on the features enabled in the vault like auth methods and secret engines.
+- System backend is a default backend  in vault which is mounted at the `/sys` endpoint.
+
+- vault components can be enabled at any path as per your desire using the `-path` flag
+	- Each path has a `default path`, which can also be used.
+- Some paths are system reserved and they cannot be used or removed.
+
+| Path Mount Point | Description |
+| --- | --- |
+| auth/ | Endpoint for auth method configuration |
+| cubbyhole/ | Endpoint used to Cubbyhole secrets engine |
+| identity/ | Endpoint for configuring Vault identity (entities and groups) |
+| secret/ | Endpoint used by key/Value v2 secrets engine if running in dev mode |
+| sys / | System endpoint for configuring Vault |
+
+## How do vault protect data?
+#encryption-key #master-key
+- Vault saves all the data in storage backend
+- Data stored in backend is encrypted by an `encryption key`
+- This `Encryption key` is stored on vault node.
+- Before storing encryption key on vault node, `Encryption key` is encrypted using a `master key`
+
+### Master Key
+
+Used to decrypt the `EncryptionKey`
+
+- Created during vault initialization or during a rekey operation
+- Never written to storage when using traditional unseal mechanism
+- Written to core/master (storage backend) when using Auto Unseal
+
+### Encryption Key
+
+Used to encrypt/decrypt data written to storage backend
+
+- Encrypted by master key
+- Stored alongside the data in a keyring on the storage backend
+- Can be easily rotated (Which is a manual operation)
+
+## Seal and Unseal
+
+- Vault always starts in a sealed state that means, it knows where to access the data, and how, but can't decrypt it.
+- Almost no operations are possible when vault is in a sealed state. Only the below operations are possible
+	- Only status check (Meaning is it in sealed on unsealed state)
+	- Unsealing a vault 
+- Unsealing the vault means the node can reconstruct the master key in order to decrypt the encryption key, and ultimately read the data.
+- After unsealing the encryption key is stored in the memory.
+
+**Sealing vault:** Means Vault throws away the encryption key and requires another unseal to do any further operation
+
+> Vault starts in a sealed state, you can also seal it via UI, CLI or API.
+
+## What is the need of sealing a vault?
+- Key shards are inadvertently exposed (As of now think key shards  means your some credentials)
+- Detection of a compromise or network intrusion.
+- Spyware/malware on the Vault nodes
+
+### Unsealing Options:
+
+- Key Sharding (Using Sharmir algorithm) 
+- Cloud Auto Unseal (can use AWS KMS)
+- Transit Auto Unseal (With help of another Vault cluster or nodes)
+
+## Un Sealing with Key Shards
