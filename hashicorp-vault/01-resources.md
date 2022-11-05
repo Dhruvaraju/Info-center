@@ -7,3 +7,4 @@ HashiCorp Vault tutorials:  https://developer.hashicorp.com/vault/tutorials
 
 Tutorial Related files: https://github.com/btkrausen/hashicorp
 HashiCorp Vault lab available at: https://kodekloud.com/courses/lab-hashicorp-certified-vault-associate-certification/
+Vault High level Architecture: https://developer.hashicorp.com/vault/docs/internals/architecture
