@@ -189,3 +189,68 @@ seal "awskms" { # identefies the type of seal mechanism for cluster
 - These 5 keys can be used when the vault is manually sealed.
 
 ## Unsealing with Transit Auto Unseal
+#transit_auto_unseal
+
+- Vault data is encrypted  by encryption key >> Encryption key is encrypted by Master key >> Master key will be encrypted by an Encryption key which will be in another vault cluster.
+- The vault cluster in which the encryption key will be hosted for encrypting and decrypting master key will have a transit secrets engine.
+- We can have a single vault cluster which is hosting transit secrets engine for many other vault clusters or we can share them across different clusters like vault A's encryption key will be on Vault B, Vault B's encryption key on Vault C.
+
+- Unsealing with transit auto unseal will use the transit secret engine of  a different vault cluster.
+- Transit secret engine may be configured in a namespace.
+- Transit unseal supports key rotation.
+- Available in open source and enterprise versions
+- The core vault cluster must be highly-available
+
+** Example Config to be added for Transit Auto Unseal**
+```
+seal "transit"{
+address = "http:core-vault-cluster:8300" #Address of vault cluster running in transit
+token = "s.GHiusadigJLHFGJfedgikGI"  # ACL token to use if enabled
+disable_renewal = "false"
+
+//Key con figuration
+key_name = "transit_key_name"  # transit key name used for encryption decryption
+mount_path = "transit/"  # mount path of transit key engine
+namespace = "ns1/"  # name space of transit secret engine
+
+// TLS Configuration
+tls_ca_cert = "/etc/vault/ca_cert.pem"
+tls_client_cert = "etc/vault/client_cert.pem"
+tls_client_key = "etc/vault/client_cert.pem"
+tls_server_name = "vault"
+tls_skip_verify = "false"
+}
+```
+
+## Setting up a transit secrets engine
+
+- `vault secrets enable transit`  for enabling a transit engine in a vault cluster.
+- `vault write -f transit/keys/unseal-key`  for creating a key named 'unseal-key' which can be used for encrypting master key of other vault cluster.
+- `vault list transit/keys` will list all the keys created under transit secrets engine
+
+example policy file
+```hcl
+# policy.hcl file
+path "transit/encrypt/unseal-key" {
+ capabilities = [ "update"]
+}
+
+path "transit/decrypt/unseal-key" {
+ capabilities = [ "update"]
+}
+```
+
+- `vault policy write unseal policy.hcl`  will add a new policy with name unseal
+- `vault policy list` will list all the available policies
+- `vault policy read <<policy_name>>` will display the content of a policy 
+- `vault token create -policy=<<policy_name>>` this will generate a token which can be used to access the transit secrets engine.
+
+In the other cluster use these details in the vault congiguration
+```
+seal "transit" {
+	address    = "http://transit-vault-adress"
+	token      = "token-generated-above"
+	key_name   = "unseal-key"
+	mount+path = "transit"
+}
+```
