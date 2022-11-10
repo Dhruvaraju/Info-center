@@ -211,3 +211,8 @@ seal "transit" {
 - Transit Auto Unseal
 	- Requires a centralized vault cluster
 	- Centralized Vault cluster needs the highest level of uptime.
+
+To restrict number of key share and key threshold use the following command while initializing
+```
+vault operator init -key-shares=3 -key-threshold=2
+```
