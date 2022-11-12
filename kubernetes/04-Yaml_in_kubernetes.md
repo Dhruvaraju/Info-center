@@ -1,4 +1,4 @@
-# Defining a pod using kubernetes
+# Defining a pod using yml kubernetes
 #pod #pod-yaml #config
 
 A simple kubernetes pod description for an nginx pod will appear as below:
