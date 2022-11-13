@@ -92,7 +92,7 @@ spec:
           image: nginx
   replicas: 3
   selector:
-    matchLabel:
+    matchLabels:
       type: front-end
 ```
 
@@ -127,3 +127,8 @@ kubectl scale --replicas=6 replicaset <replicaset-name>
 #eample
 kubectl scale --replicas=6 replicaset replicaset-definition.yml
 ```
+
+>[!Info]
+> Replica set is the latest supported feature, Replication Controllers are not used extensively anymore.
+> 
+
