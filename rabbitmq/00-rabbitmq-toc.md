@@ -1,2 +1,2 @@
 ### Table of Contents
-- [Installation](01-installation.md)
+- [Installation](rabbitmq/01-installation.md)
