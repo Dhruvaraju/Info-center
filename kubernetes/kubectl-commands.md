@@ -70,3 +70,37 @@ To edit a running configuration of a replica-set use
 kubectl edit replicaset <replicaset-name>
 # This will update the running configuration no the real file which we used
 ```
+
+Command used to see the status of a rollout:  
+#rollout-status
+```sh
+kubectl rollout status deployment.apps/<<deployment-name>>
+```
+
+Command to see the rollout history and revisions 
+#rollout-history
+```sh
+kubectl rollout history deployment.apps/<<deployment_name>>
+```
+
+We can update the deployment definition yaml and use 
+#deployment-update
+
+```sh
+kubectl apply -f deployment-definition-file.tml
+```
+
+ We can update the image name directly using set image 
+ #set-image
+```sh
+kubectl set image deployment/<deployment-name> image-name-given-in-deployment=<Name-of-image-from-docker-hub>
+
+#example
+kubectl set image deployment/deployment.yml nginx=nginx:1.8.0
+```
+
+To rollback to a previous revision of deployment use 
+#rollback
+```sh
+kubectl rollout undo deploymnet/deployment-name
+```
