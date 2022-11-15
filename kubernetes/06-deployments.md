@@ -1,4 +1,4 @@
-:# Deployments
+# Deployments
 #kubernetes_deployments
 
 ## Rolling Update
