@@ -27,3 +27,5 @@ Vault is available on may operating systems like, Windows, MacOS, Linux, FreeBSD
 - To install or configure vault on kubernetes use `helm install vault hashicorp/vault`
 
 ## Installing with Packer
+
+> Add all other options to install vault
