@@ -26,3 +26,8 @@ kubectl get service
 ls -l  /etc/yum.repos.d
 
 yum-config-manager --add-repo
+
+To explain about a kubernetes object
+```
+kubectl explain <<kubernetes_object>>
+```
