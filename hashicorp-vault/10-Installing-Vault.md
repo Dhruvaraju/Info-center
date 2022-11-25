@@ -45,3 +45,14 @@ Alternatively we can go to https://releases.hashicorp.com
 For Vault versions we can use https://releases.hashicorp.com/vault/
 
 - Choose the most recent version and copy the url for it
+
+```sh
+curl --silent -Lo /tmp/vault.zip https://releases.hashicorp.com/vault/1.12.1/vault_1.12.1_windows_amd64.zip
+```
+
+- Or Download the binary for your OS
+- Extract it, place it in a desired location.
+- Update the system path in windows
+- In Linux place it in `/usr/local/bin`
+
+Check version by using `vault --version`
