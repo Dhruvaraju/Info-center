@@ -31,3 +31,6 @@ To explain about a kubernetes object
 ```
 kubectl explain <<kubernetes_object>>
 ```
+
+### Kubernetes job
+A one time run object, which will check if deployment of specified number for pods are successful or not. A job's final status is completed.

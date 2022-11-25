@@ -29,3 +29,19 @@ Vault is available on may operating systems like, Windows, MacOS, Linux, FreeBSD
 ## Installing with Packer
 
 > Add all other options to install vault
+
+Predefined scripts can be found at https://github.com/btkrausen/hashicorp
+
+For installing vault https://github.com/btkrausen/hashicorp/tree/master/vault/packer
+
+Github repo btkrausen/hashicorp
+- Contains information regarding many HashiCorp products.
+- For Vault related installation procedures and other examples refer to vault folder.
+
+## Installing Manually
+
+Vault can be downloaded from https://developer.hashicorp.com/vault/downloads?product_intent=vault
+Alternatively we can go to https://releases.hashicorp.com
+For Vault versions we can use https://releases.hashicorp.com/vault/
+
+- Choose the most recent version and copy the url for it
