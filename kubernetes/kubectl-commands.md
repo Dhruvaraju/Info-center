@@ -104,3 +104,10 @@ To rollback to a previous revision of deployment use
 ```sh
 kubectl rollout undo deploymnet/deployment-name
 ```
+
+To get information about service: #service #svc
+```sh
+kubectl get services
+# Or we can also use
+kubectl get svc
+```
