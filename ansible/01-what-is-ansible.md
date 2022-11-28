@@ -32,7 +32,3 @@ Modules can be found at: https://docs.ansible.com/ansible/latest/collections/ind
 - An inventory of targets.
 - It contains Hosts, Network Switches, Containers, Storage arrays and many more physical and virtual devices.
 - Inventories provide useful information regarding the targets.
-
-
-
- 
