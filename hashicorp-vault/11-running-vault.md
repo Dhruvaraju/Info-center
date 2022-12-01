@@ -75,3 +75,31 @@ vault kv get secret/example/dexter
 > As the dev mode will provide only storage backend as in-memory on restart the data will be lost
 
 ## Running Vault in Production Mode
+
+- Deploy one or more persistence nodes via configuration file.
+- Use a storage backend that meets the requirements
+- Multiple Vault nodes will be configured as a cluster.
+- Deploy close to you applications, meaning use the same cloud provider for storage and hosting as well.
+- Automate provisioning of vault if possible.
+
+To start Vault use command
+```sh
+vault server -config=<file>
+```
+
+- In a production environment we will have a service manager executing and managing the vault service (systemctl, Windows Service Manager)
+- For Linux we also need a systemd file to manage the service for Vault (and Consul if we are using consul)
+- Not recommended to use a single node
+	- No redundancy
+	- No Scalability
+
+### Running Vault in production
+
+- [ ] Download vault from HashiCorp vault
+- [ ] Unpackage vault to a directory
+- [ ] Set path to Executable
+- [ ] Add configuration file and Customize
+- [ ] Create Systemd service File
+- [ ] Download Consul from HashiCorp
+- [ ] Configure and Join Consul Cluster
+- [ ] Launch Vault Service

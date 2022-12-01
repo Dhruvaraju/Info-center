@@ -30,3 +30,5 @@ If you are new to VirtualBox or Vagrant, please follow this pre-requisites cours
 ### Worker Node:
 - Kubelet
 - Container Runtime
+
+https://github.com/mmumshad/kubernetes-the-hard-way

@@ -227,3 +227,7 @@ Minikube Tutorial: -
 If the minikube installation has been done on the macOS, then to access the URL on the local browser, we need to do a few steps to get the service URL to work. Those steps are covered on this documentation page: -
 
 [https://minikube.sigs.k8s.io/docs/handbook/accessing/#using-minikube-service-with-tunnel](https://minikube.sigs.k8s.io/docs/handbook/accessing/#using-minikube-service-with-tunnel)
+
+
+> [!Info] Setting up multi node environment
+> https://github.com/mmumshad/kubernetes-the-hard-way
