@@ -4,3 +4,4 @@ How to manage a project with Microsoft planner
 https://developer.hashicorp.com/boundary/tutorials/oss-getting-started/oss-getting-started-intro
 
 Minio: https://min.io/
+http status list: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
