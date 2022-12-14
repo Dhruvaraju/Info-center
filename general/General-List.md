@@ -5,3 +5,4 @@ https://developer.hashicorp.com/boundary/tutorials/oss-getting-started/oss-getti
 
 Minio: https://min.io/
 http status list: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+oAuth2 
