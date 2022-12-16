@@ -12,3 +12,7 @@
 - Configuration files (HCL or Json)
 - Provider plugins (Cloud provider plugins)
 - State Data (Terraform maintains state files which will say the current situation of an environment that a component is provisioned to.)
+
+
+## IAC
+Types of iac models
