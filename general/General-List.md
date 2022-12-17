@@ -7,3 +7,7 @@ Minio: https://min.io/
 http status list: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 oAuth2 
 kubernetes can be enabled in docker desktop
+
+Keycloak cluster reference:
+https://www.youtube.com/watch?v=P96VQkBBNxU
+Configuration: https://gist.github.com/dasniko/059dc2a895f585f6f74edaa042a2da48
