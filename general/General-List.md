@@ -11,3 +11,4 @@ kubernetes can be enabled in docker desktop
 Keycloak cluster reference:
 https://www.youtube.com/watch?v=P96VQkBBNxU
 Configuration: https://gist.github.com/dasniko/059dc2a895f585f6f74edaa042a2da48
+Key-cloak image location: https://quay.io/repository/keycloak/keycloak
