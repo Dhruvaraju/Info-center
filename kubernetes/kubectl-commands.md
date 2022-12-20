@@ -129,20 +129,21 @@ Here are some of the commonly used formats:
 Here are some useful examples:
 
 -   **Output with JSON format:**
-    
+master $ kubectl create namespace test-123 --dry-run -o json
 
-1.  master $ kubectl create namespace test-123 --dry-run -o json
-2.  {
-3.      "kind": "Namespace",
-4.      "apiVersion": "v1",
-5.      "metadata": {
-6.          "name": "test-123",
-7.          "creationTimestamp": null
-8.      },
-9.      "spec": {},
-10.      "status": {}
-11.  }
-12.  master $
+``` 
+{
+      "kind": "Namespace",
+      "apiVersion": "v1",
+     "metadata": {
+          "name": "test-123",
+          "creationTimestamp": null
+      },
+      "spec": {},
+      "status": {}
+  }
+ master $
+```
 
   
 
@@ -164,14 +165,13 @@ Here are some useful examples:
     
 
 Probably the most common format used to print additional details about the object:
-
-1.  master $ kubectl get pods -o wide
-2.  NAME      READY   STATUS    RESTARTS   AGE     IP          NODE     NOMINATED NODE   READINESS GATES
-3.  busybox   1/1     Running   0          3m39s   10.36.0.2   node01   <none>           <none>
-4.  ningx     1/1     Running   0          7m32s   10.44.0.1   node03   <none>           <none>
-5.  redis     1/1     Running   0          3m59s   10.36.0.1   node01   <none>           <none>
-6.  master $
-
+```
+  master $ kubectl get pods -o wide NAME      READY   STATUS    RESTARTS   AGE     IP          NODE    NOMINATED NODE   READINESSGATES
+busybox   1/1     Running   0          3m39s   10.36.0.2   node01   <none>           <none>
+ningx     1/1     Running   0          7m32s   10.44.0.1   node03   <none>           <none>
+redis     1/1     Running   0          3m59s   10.36.0.1   node01   <none>           <none>
+master $
+```
   
 
 For more details, refer:
@@ -179,3 +179,12 @@ For more details, refer:
 [**https://kubernetes.io/docs/reference/kubectl/overview/**](https://kubernetes.io/docs/reference/kubectl/overview/)
 
 [**https://kubernetes.io/docs/reference/kubectl/cheatsheet**](https://kubernetes.io/docs/reference/kubectl/cheatsheet)**/**
+
+- Use `--dry-run=client` to check a command with out creating it.
+- Use `-o  yaml` to get the definition files displayed on screen
+example: 
+
+```sh
+kubectl run nginx --image=nginx --dry-run=client -o yaml
+```
+
