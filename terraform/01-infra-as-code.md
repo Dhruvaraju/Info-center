@@ -77,19 +77,19 @@ Terraform sends configuration by push. When a environment needs an infrastructur
 	- Terraform
 
 ### Configuration Management Tools
-	- Designed to manage and install software on existing resources
-	- Maintains standard structure
-	- Can be pused to a version control and server accordingly
-	- Idempotent
+- Designed to manage and install software on existing resources
+- Maintains standard structure
+- Can be pushed to a version control and server accordingly
+- Idempotent
 
 ### Server Templating tools:
-	- Pre installed software snd dependencies
-	- Virtual machines or docker images
-	- These will be immutable once created cannot be updated
+- Pre installed software and dependencies
+- Virtual machines or docker images
+- These will be immutable once created cannot be updated
 
 ### Provisioning Tools:
-	- Used for deploying immutable infrastructure resources.
-	- Servers, dbs, network components etc
-	- Multiple providers 
-	- Cloudformation is specifically for AWS
-	- Terraform supports major cloud providers.
+- Used for deploying immutable infrastructure resources.
+- Servers, dbs., network components etc
+- Multiple providers 
+- Cloud formation is specifically for AWS
+- Terraform supports major cloud providers.
