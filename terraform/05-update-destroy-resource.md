@@ -1,7 +1,7 @@
 # Update a Resource
 - Update the  configuration 
 - Run `terraform plan` to see what will happen
-- Run `terraform apply` the ne configuration
+- Run `terraform apply` for applying new configuration, creating updated resource.
 
 ### Example updating file permission
 Update configuration as below

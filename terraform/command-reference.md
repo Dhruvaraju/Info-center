@@ -25,3 +25,9 @@ terraform plan
 # To create the resources mentioned in the configuration
 terraform apply
 ```
+
+#terraform-destroy
+```sh
+# To remove the resources mentioned in the configuration
+terraform destroy
+```
