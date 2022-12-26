@@ -54,3 +54,5 @@ Initializing provider plugins...
 | variables.tf | Contains variable declarations |
 | output.tf | Contains outputs from resources |
 | Provider.tf | Contains provider Definition |
+
+## Multiple Providers
