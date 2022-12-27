@@ -90,6 +90,217 @@ Now we can run plan and apply to create those resources. We can add any number o
 
 ## Input Variables
 
+- In example configuration files the argument values are hardcoded.
+- These values can be placed in a separate file named as `variables.tf`, can be referenced from there.
+- A new variable can be crenelated as below
+
+```hcl
+variable "filename" {
+    default = "D:\\temp\\example.txt"
+}
+```
+
+- It can be referenced as `var.filename`
+An example `main.tf` and its corresponding `variables.tf` file is shown below
+
+```hcl
+resource "local_file" "pet" {
+    filename = var.filename
+    content = var.content
+    file_permission = var.file_permission
+}
+
+resource "random_pet" "test_pet" {
+    prefix = var.prefix
+    separator = var.seperator
+    length = 2
+}
+```
+
+```hcl
+variable "filename" {
+    default = "D:\\temp\\example.txt"
+}
+
+variable "content" {
+    default = "Initial file from terraform"
+}
+ 
+variable "file_permission" {
+    default = "0700"
+}  
+
+variable "prefix" {
+    default = "Mrs"
+}  
+
+variable "seperator" {
+    default = "."
+}
+```
+
+## Variable Block
+
+- A simple variable block contains a default value other than that we can add type and description
+```hcl
+variable "filename" {
+	default = "/root/example.txt"
+	type = string
+	description = "Used to specify the path of file"
+}
+```
+
+### Arguments
+
+Terraform CLI defines the following optional arguments for variable declarations:
+
+- default - A default value which then makes the variable optional.
+- type - This argument specifies what value types are accepted for the variable.
+- description - This specifies the input variable's documentation.
+ - validation - A block to define validation rules, usually in addition to type constraints.
+ - sensitive - Limits Terraform UI output when the variable is used in configuration.
+ - nullable - Specify if the variable can be null within the module.
+
+### Custom Validation Rules
+
+> This feature was introduced in Terraform CLI v0.13.0.
+
+You can specify custom validation rules for a particular variable by adding a `validation` block within the corresponding `variable` block. The example below checks whether the AMI ID has the correct syntax.
+
+```hcl
+variable "image_id" {
+  type        = string
+  description = "The id of the machine image (AMI) to use for the server."
+
+  validation {
+    condition     = length(var.image_id) > 4 && substr(var.image_id, 0, 4) == "ami-"
+    error_message = "The image_id value must be a valid AMI id, starting with \"ami-\"."
+  }
+}
+```
+ 
+> [! Info]
+> type, description are optional fields
+
+### Type of variables allowed
+- `string`
+	-  `/root/pets.txt` can be fetched by `var.variablename`
+- `number`
+	- `1` can be fetched by `var.variablename`
+- `bool`
+	- `true` can be fetched by `var.variablename`
+- `list (<TYPE>)``
+	- List can be specified with type as `type = list(string)` then it will only allow string
+```hcl
+#variables.tf
+variable "prefix" {
+	default = ["Mr", "Ms", "sir"]
+	type = list
+}
+
+#main.tf
+resource "random_pet" "test_pet" {
+    prefix = var.prefix[0]
+    separator = var.seperator
+    length = 2
+}
+```
+
+- `set(<TYPE>)`
+	- Set also same as list except the values will not have duplicates
+	- Set can be specified with type as `type = set(string)` then it will only allow string
+- `map(<TYPE>)`
+	- map can be specified with type as `type = map(string)` then it will only allow string
+```hcl
+#variables.tf
+variable "prefix" {
+	default = {
+		 "coma_seperator" = ","
+		 "period_seperator" = "."
+ }
+	type = map
+}
+
+#main.tf
+resource "random_pet" "test_pet" {
+    prefix = var.prefix["period_seperator"]
+    separator = var.seperator
+    length = 2
+}
+```
+- `object({<ATTR NAME> = <TYPE>, ... })`
+	- object type is used when a group of parameters need to be specefied example
+```hcl
+#variables.tf
+variable "bella" {
+	type = object ({
+		name = string
+		color = string
+		age = number
+		food = list(string)
+		favorite_pet = bool
+	})
+	default = {
+		name = "bella"
+		color = "brown"
+		age = 4
+		food = ["fish", "chicken", "turkey"]
+		favorite_pet = true
+	}
+}
+```
+- `tuple([<TYPE>, ...])`
+	- tuple is similar to list but a specified number of fields and their types will be mentioned
+```hcl
+#variables.tf
+variable "kitty" {
+	type = tuple([string, number , bool])
+	default = ["cat", 5, true]
+}
+```
+
+> [!Note]
+> If we provide incorrect type terraform plan and apply will fail specifying the error that type is not correct.
+
+## Using Variables while running terraform
+
+- Interactive form
+	- When the default value is not provided in `variables.tf`
+	- Terraform will ask for those values in an interactive form on running plan or apply.
+- Command Line Flags
+	- variables can also be passed as command line arguments as below
+	```sh
+	terraform apply -var "filename=/root/pets.txt" -var "content=example text" -var "prefix=Mr"
+	```
+- We can set the variables as environment variables as show below
+	- The above used variables can be
+	```sh
+	export TF_VAR_filename="/root/pets.txt"
+	export TF_VAR_content="example content"
+	export TF_VAR_prefix="Mr"
+	```
+- Variables can be place in a file in the same folder as configuration folder with name `terraform.tfvars` or `terraform.tfvars.json`
+	- Example file content is mentioned below
+	```
+	filename="root/pets.txt"
+	content="example text"
+	prefix="Mr"
+	```
+	> [!Note]
+	> To automatically load variable file names can be named with any name with extension `*.auto.tfvars` or `*.auto.tfvars.json*` 
+
+## Variable Definition Precedence
+
+The above mechanisms for setting variables can be used together in any combination. If the same variable is assigned multiple values, Terraform uses the _last_ value it finds, overriding any previous values. Note that the same variable cannot be assigned multiple values within a single source.
+
+Terraform loads variables in the following order, with later sources taking precedence over earlier ones:
+
+-   Environment variables
+-   The `terraform.tfvars` file, if present.
+-   The `terraform.tfvars.json` file, if present.
+-   Any `*.auto.tfvars` or `*.auto.tfvars.json` files, processed in lexical order of their filenames.
+-   Any `-var` and `-var-file` options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
+
 ## Resource Attributes
 
 ## Output Variables
