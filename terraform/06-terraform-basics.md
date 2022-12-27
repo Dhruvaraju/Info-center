@@ -56,3 +56,40 @@ Initializing provider plugins...
 | Provider.tf | Contains provider Definition |
 
 ## Multiple Providers
+
+We can use multiple providers in same `.tf` file.
+Example: 
+```hcl
+resource "local_file" "pet" {
+    filename = "D:\\temp\\example.txt"
+    content = "Initial file from terraform"
+    file_permission = "0700"
+}
+
+resource "random_pet" "test_pet" {
+    prefix = "Mrs"
+    seperator = "."
+    length = 2
+}
+```
+
+On running `terraform init`, terraform will download both of the providers mentioned in the above example. (local and random)
+Information on Random provider available at: https://registry.terraform.io/providers/hashicorp/random/latest/docs
+
+```sh
+Initializing provider plugins...
+- Finding latest version of hashicorp/random...
+- Finding latest version of hashicorp/local...
+- Installing hashicorp/random v3.4.3...
+- Installed hashicorp/random v3.4.3 (signed by HashiCorp)
+- Installing hashicorp/local v2.2.3...
+- Installed hashicorp/local v2.2.3 (signed by HashiCorp)
+```
+
+Now we can run plan and apply to create those resources. We can add any number of resources in a terraform configuration file.
+
+## Input Variables
+
+## Resource Attributes
+
+## Output Variables
