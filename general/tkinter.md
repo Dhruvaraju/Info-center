@@ -21,3 +21,7 @@ greet_button = ttk.Button(root, text="Submit", command=greeting)
 greet_button.pack()
 root.mainloop()
 ```
+
+#TODO identify alternatives for Tkinter
+#TODO Rest api with flask app
+#TODO Futures and executor in flask
