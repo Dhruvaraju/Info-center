@@ -40,8 +40,48 @@ public class TaxCalculator2023 implements TaxCalculator{
 	- Bundling the data, the methods that operate on the data within one unit or class.
 	- Hiding the values or state of a class inside an object.
 	- This prevents data from invalid state.
-	- 
+	- In the below example `balance`, `firstname`, `lastname` can only be updated using its getters and setters.
+```java
+public class Account {  
+    private Long accountNumber;  
+    private String firstName;  
+    private String lastName;  
+  
+    public Long getAccountNumber() {  
+        return accountNumber;  
+    }  
+  
+    public void setAccountNumber(Long accountNumber) {  
+        this.accountNumber = accountNumber;  
+    }  
+  
+    public String getFirstName() {  
+        return firstName;  
+    }  
+  
+    public void setFirstName(String firstName) {  
+        this.firstName = firstName;  
+    }  
+  
+    public String getLastName() {  
+        return lastName;  
+    }  
+  
+    public void setLastName(String lastName) {  
+        this.lastName = lastName;  
+    }  
+  
+    public String fullName() {  
+        return firstName + lastName;  
+    }  
+}
+
+```
 - Abstraction
+	- Reducing complexity by hiding unnecessary details in a class.
 - Inheritance
+	- A mechanism to reuse code across classes.
+	- Usage of Extends
 - Polymorphism
+	- Ability of an object to take many forms
 
