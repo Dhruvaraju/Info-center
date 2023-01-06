@@ -84,4 +84,6 @@ public class Account {
 	- Usage of Extends
 - Polymorphism
 	- Ability of an object to take many forms
+	- Creating an abstract method and creating a abstract class
+	- Now the class can only be extended
 
