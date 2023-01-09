@@ -1,0 +1,8 @@
+- [ ] Comptia A+ for foundation
+- [ ] Comptia security+ for security foundations
+- [ ] Networking CCNA
+- [ ] Linux foundations
+- [ ] CTFs or small hackathons
+- [ ] Pentests+ or EJPT
+- [ ] OSCP offensive security certified professional
+- [ ] 
