@@ -16,3 +16,5 @@ Key-cloak image location: https://quay.io/repository/keycloak/keycloak
 What does gitops workflow  means?
 An orchestration workflow which considers git as its only source of truth and state is considered as gitops workflow. example argo cd.
 
+Checking repos in linux` yum repo list`
+
