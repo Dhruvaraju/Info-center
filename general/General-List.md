@@ -18,3 +18,5 @@ An orchestration workflow which considers git as its only source of truth and st
 
 Checking repos in linux` yum repo list`
 
+to check list of ip interfaces in linu machines use `ip link`
+to check a specfic process `ps -eaf | grep <search term>`
