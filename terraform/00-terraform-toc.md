@@ -13,3 +13,5 @@ General commands that are used can be found at [Command Reference](command-refer
 - [10 - terraform data sources ](10-working-with-terraform.md)
 - [11 - Enforcing Version Constraints](11-version-constraints.md)
 - [12 -  Terraform state and operations on it](12-terraform-remote-state.md)
+- [13 - Reference for aws concepts](13-aws-reference.md)
+- [14 - Adding resources using terraform](14-terraform-and-aws.md)
