@@ -12,3 +12,4 @@ General commands that are used can be found at [Command Reference](command-refer
 - [09 - lifecycle rules and what is the use of them](09-lifecycle-rules.md)
 - [10 - terraform data sources ](10-working-with-terraform.md)
 - [11 - Enforcing Version Constraints](11-version-constraints.md)
+- [12 -  Terraform state and operations on it](12-terraform-remote-state.md)

@@ -20,3 +20,6 @@ Checking repos in linux` yum repo list`
 
 to check list of ip interfaces in linu machines use `ip link`
 to check a specfic process `ps -eaf | grep <search term>`
+
+Using terraform for GKE
+https://www.youtube.com/watch?v=s--2TFcDo2c
