@@ -89,6 +89,7 @@ Initializing provider plugins...
 Now we can run plan and apply to create those resources. We can add any number of resources in a terraform configuration file.
 
 ## Input Variables
+#terraform_variables
 
 - In example configuration files the argument values are hardcoded.
 - These values can be placed in a separate file named as `variables.tf`, can be referenced from there.

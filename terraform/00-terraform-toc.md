@@ -15,3 +15,5 @@ General commands that are used can be found at [Command Reference](command-refer
 - [12 -  Terraform state and operations on it](12-terraform-remote-state.md)
 - [13 - Reference for aws concepts](13-aws-reference.md)
 - [14 - Adding resources using terraform](14-terraform-and-aws.md)
+- [15 - Provisioners in terraform and why to use them?](15-terraform-provisioners.md)
+- [16 - Tainiting and untainting, debugging and import ](16-taint-and-debugging.md)
