@@ -16,4 +16,7 @@ General commands that are used can be found at [Command Reference](command-refer
 - [13 - Reference for aws concepts](13-aws-reference.md)
 - [14 - Adding resources using terraform](14-terraform-and-aws.md)
 - [15 - Provisioners in terraform and why to use them?](15-terraform-provisioners.md)
-- [16 - Tainiting and untainting, debugging and import ](16-taint-and-debugging.md)
+- [16 - Tainting and untainting, debugging and import ](16-taint-and-debugging.md)
+- [17 - Modules for config reusability](17-modules.md)
+- [18 - functions](18-terraform-functions.md)
+- [19 - Using workspace to set multiple environments](19-workspaces.md)
