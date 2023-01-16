@@ -26,3 +26,6 @@ https://www.youtube.com/watch?v=s--2TFcDo2c
 
 Multipass
 to host ubuntu vms on a desktop
+
+Object oriented python:
+https://www.youtube.com/watch?v=Ej_02ICOIgs
