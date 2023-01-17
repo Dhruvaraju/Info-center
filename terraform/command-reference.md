@@ -45,3 +45,6 @@ terraform output
 # To get a specific variable provide the varaible name as below
 terraform output pet_name
 ```
+
+google-cloud reference:
+https://cloud.google.com/docs/terraform
