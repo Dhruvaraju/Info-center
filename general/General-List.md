@@ -24,6 +24,10 @@ to check a specfic process `ps -eaf | grep <search term>`
 Using terraform for GKE
 https://www.youtube.com/watch?v=s--2TFcDo2c
 
+https://registry.terraform.io/providers/hashicorp/google/latest/docs/guides/using_gke_with_terraform
+https://cloud.google.com/docs/terraform
+https://developer.hashicorp.com/terraform/tutorials/kubernetes/gke
+
 Multipass
 to host ubuntu vms on a desktop
 
