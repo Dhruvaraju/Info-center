@@ -33,3 +33,14 @@ to host ubuntu vms on a desktop
 
 Object oriented python:
 https://www.youtube.com/watch?v=Ej_02ICOIgs
+
+### Creating GKE cluster using terraform
+
+[Create a GKE Cluster (Workload Identity enabled) using Terraform - DEV Community 👩‍💻👨‍💻](https://dev.to/pradeepbhadani/create-a-gke-cluster-workload-identity-enabled-using-terraform-4n2f#:~:text=1%20Step%201%3A%20Create%20a%20Unix%20directory%20for,Let%27s%20see%20the%20execution%20plan.%20...%20More%20items)
+
+[How to Use Terraform with GKE: a Step-by-Step Guide to Deploying Your First Cluster | by Fairwinds | Medium](https://fairwinds.medium.com/how-to-use-terraform-with-gke-a-step-by-step-guide-to-deploying-your-first-cluster-7cfa4d640535)
+
+
+## Getting kube_config
+
+[kubernetes - How to export kubeconfig file from existing cluster? - Stack Overflow](https://stackoverflow.com/questions/61829214/how-to-export-kubeconfig-file-from-existing-cluster)
