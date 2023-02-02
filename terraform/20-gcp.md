@@ -1,0 +1,3 @@
+- For terraform to work install gcloud sdk
+- Then authorize it to login after completion
+- To use terraform scripts run `gcloud auth application-default login`
