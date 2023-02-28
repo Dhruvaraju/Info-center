@@ -34,3 +34,16 @@ kubectl explain <<kubernetes_object>>
 
 ### Kubernetes job
 A one time run object, which will check if deployment of specified number for pods are successful or not. A job's final status is completed.
+
+
+k3d
+
+```
+k3d cluster create <<cluster-name>>
+k3d cluster create <<cluster-name>> --agents 2 --servers 1
+
+k3d cluster list
+
+# to add additional node
+k3d node create <<node-name>> --role <<agent/server>> --cluster multinode
+```

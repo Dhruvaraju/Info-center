@@ -13,3 +13,5 @@ kubeconfig entry generated for gke-example.
 ```
 https://fig.io/manual/gcloud/container/clusters/get-credentials
 ```
+
+https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials
