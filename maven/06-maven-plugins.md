@@ -27,3 +27,19 @@
     </plugins> 
 </build>
 ```
+
+
+## Resources
+Used to copy files in resources to target folder. We can specify the resource folder.
+
+## Surefire
+Used to runs tests present in test folder. Places the reports in target folders.
+
+## Jar Plugin
+Used to generate jars
+
+## Deploy 
+To deploy created artifact to a specified maven repository.
+
+## Site
+Generates  a site from project created.
