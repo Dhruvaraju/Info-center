@@ -105,5 +105,3 @@ To list Vault cluster members
 ```sh
 vault operator raft list-peers
 ```
-
-
