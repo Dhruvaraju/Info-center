@@ -101,5 +101,25 @@ Except source command, all other ways will open a secondary shell to execute the
 - Variable names cannot start with numbers or special characters
 - The only allowed special character is `__`
 
+### Assigning and expansion or substitution
+- Once after assigning a variable we can us it by wrapping a curly brace, when substitution is required. Eg: 
+```sh
+os=windows
+echo ${os}11
+# prints windows11
+echo $os11 # will not print anything to it
+```
 
-<!-- Learning: Zerotomastery -Bash Scripting Learn Shell Scripting: lesson 10>
+**Quoting:**
+- single quote is used to remove the  special meaning on special characters
+- Double quotes are used when multi word strings are used including special characters and variable substitution.
+- To use special characters such a coma, forward slash `\` is used as escape character. 
+
+```sh
+echo 'alpha\\beta'
+echo "alpha\\beta"
+age=10
+echo "alpha is $age"
+```
+
+<!-- Learning: Zerotomastery -Bash Scripting Learn Shell Scripting: lesson 12>
