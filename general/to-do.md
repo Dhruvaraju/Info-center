@@ -14,3 +14,6 @@ Spring Graphql: https://www.youtube.com/watch?v=atA2OovQBic
 
 https://linuxconfig.org/redhat-8-change-timezone
 vim /etc/chrony.conf
+
+
+developedbyed
