@@ -27,3 +27,10 @@ up arrow to see history of commands, similarly down arrow as well.
 - `ctrl+r` for searching the bash history (`ctrl+r` and start typing the command to search for it) press enter or `ctrl+p` to execute it or `ctrl+g` to leave search and clear.
 - To delete a command from command history use `history -d <line-number>` eg: `history -d 10`
 - To delete complete history `history -c`
+
+> Use `tab` to auto complete the names, type few letters and click tab it will auto suggest the values
+
+- Adding time to the history of commands can be done using env variables `HISTTIMEFORMAT="%d/%m/%y %T"`. For the current session history will be stored with the timestamp.
+- To persist add the same to `.bashrc` file
+- To hide commands to show up in history set the `HISTCONTROL` env variable to `ignoreboth`. Then run the commands with  a space before them, those commands will not appear in history.
+- To avoid duplicate commands in history update `HISTCONTROL` value to `ignoredups`
