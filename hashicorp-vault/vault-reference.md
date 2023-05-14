@@ -1,4 +1,4 @@
-## Running a vault dev server:
+ ## Running a vault dev server:
 
 ```
 vault server -dev

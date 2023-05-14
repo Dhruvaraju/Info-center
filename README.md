@@ -23,4 +23,4 @@ Below are the topics that are added in this obsidian notes.
 - [Wire mock](wiremock/00-wiremock-toc.md)
 - [Helm](helm/00-helm-toc.md)
 - [ Kafka ](kafka/00-kafka-toc.md)
-- 
+- [Encryption and Certificates](hashing-encryption-certs/00-toc)
