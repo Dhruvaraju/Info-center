@@ -17,3 +17,5 @@ vim /etc/chrony.conf
 
 
 developedbyed
+
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.developing-auto-configuration
