@@ -37,3 +37,14 @@ Use command `helm version` to check the version of helm installed.
 > [!Note]
 > Use package manager to install helm as upgrading or uninstalling and other environment setup will be easy.
 
+- Helm uses the same config file that kubectl uses to interact with kubernetes
+- To change it we can either set `KUBECONFIG` environment variable or change the config in `.kube/config` folder.
+- `--debug`: If this is specified, `$HELM_DEBUG` is set to `1`
+- `--registry-config`: This is converted to `$HELM_REGISTRY_CONFIG`
+- `--repository-cache`: This is converted to `$HELM_REPOSITORY_CACHE`
+- `--repository-config`: This is converted to `$HELM_REPOSITORY_CONFIG`
+- `--namespace` and `-n`: This is converted to `$HELM_NAMESPACE`
+- `--kube-context`: This is converted to `$HELM_KUBECONTEXT`
+- `--kubeconfig`: This is converted to `$KUBECONFIG`
+
+> To check perform operations on a specific kubernetes cluster we can pass the kube config file as a reference.
