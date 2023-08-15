@@ -93,3 +93,12 @@ Using a a trained model on new data to identify expected result is called infere
 - Un supervised learning
 - Reinforcement learning
 
+## Python modules that can be used for data science projects
+
+- Numpy
+- Pandas
+- matplotlib
+- scikit-learn
+- TensorFlow
+- Pytorch
+- Keras
