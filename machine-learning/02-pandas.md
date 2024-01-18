@@ -7,3 +7,5 @@ built on top of the [Python](https://www.python.org) programming language.
 - Mainly used for data analysis and exploration
 
 ## Series Data Structure
+
+Pandas series is an one dimensional labelled array containing sequence of values, also an associated array of labels called as index.

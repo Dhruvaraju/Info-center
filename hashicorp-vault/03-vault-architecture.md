@@ -30,7 +30,7 @@ In order to use secret engines we need to authenticate first with vault, There a
 - Multiple authorization methods can be enabled based on requirement
 	- authorization methods can differentiate human vs machine
 - Once authenticated a token will be issued which can be used to perform future operations.
-	- main aim of all authorization methods is t get a token.
+	- main aim of all authorization methods is to get a token.
 	- Each token will have an associated policy or policies and a time to live (TTL)
 - Default authentication method for a new vault deployment is **tokens**
 

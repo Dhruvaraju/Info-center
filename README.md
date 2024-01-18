@@ -25,3 +25,5 @@ Below are the topics that are added in this obsidian notes.
 - [ Kafka ](kafka/00-kafka-toc.md)
 - [Encryption and Certificates](hashing-encryption-certs/00-toc)
 - [Machine Learning](machinelearning/00-toc.md)
+- [generative-ai-with-python](generative-ai-with-python/00-toc.md)
+- [NGINX](nginx/00-toc.md)

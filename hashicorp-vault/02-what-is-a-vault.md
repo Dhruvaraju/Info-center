@@ -14,7 +14,7 @@ Usernames, passwords, certificates, API keys, Encryption Keys.
 	- Eliminates secret sprawl
 	- Securely store any secret
 	- Provides governance for access to secrets.
-		- Dev team a can have access to a secret and all other teams can be restricted from accessing it.
+		- a Dev team can have access to a secret and all other teams can be restricted from accessing it.
 
 ## Interacting with Vault
 
