@@ -32,3 +32,56 @@ dexter     42590  0.0  0.0   6480  2336 pts/0    S+   17:11   0:00 grep --color=
 - use `systemctl start nginx` to start nginx service
 - to check status `systemctl status nginx`
 - To check if nginx is running `ps aux | grep nginx` 
+
+- Details about nginx will be present in `/etc/nginx/nginx.conf` file.
+- logs are located in the below mentioned location
+
+#nginx-logs
+
+```sh
+access_log /var/log/nginx/access.log;
+error_log /var/log/nginx/error.log;
+```
+
+> For streaming the logs use `tail -f <location_of_file>` example `tail -f /var/log/nginx/access.log`
+
+### Installation using source code
+
+- Navigate to nginx.org, navigate to download page.
+- Identify the stable version and copy the link to download it, it will look something like https://nginx.org/download/nginx-1.25.3.tar.gz
+
+#### On Ubuntu
+- `apt-get update` to update packages
+- To download the file use `wget` like `wget https://nginx.org/download/nginx-1.25.3.tar.gz`
+- Extract it by using `tar -zxvf nginx-1.25.3.tar.gz`
+- Navigate into the extracted folder to find a configure folder
+- Execute it by using `./configure`, If the compiler is missing install it using `apt-get install build-essential`
+- Try executing `./configure` if it fails requesting pcre library install the required libraries with `apt-get install libpcre3 libpcre3-dev zliblg zliblg-dev libssl-dev make`
+- Now `./configure` will work but it will not have any configuration define
+- Use the below command to configure location for different options like logs and conf
+
+```sh
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
+```
+- Now a make file will be created use `make` and `make install` to install nginx
+- To start it use `nginx`
+- To check if nginx is running use `ps -ef | grep nginx`
+
+
+#### On Centos
+- `yum update` for updating packages
+-  To download the file use `wget` like `wget https://nginx.org/download/nginx-1.25.3.tar.gz`
+- Extract it by using `tar -zxvf nginx-1.25.3.tar.gz`
+- Navigate into the extracted folder to find a configure folder
+- Execute it by using `./configure`,  If the compiler is missing install it using `yum groupinstall "Development Tools`
+- Try executing `./configure` if it fails requesting pcre library install the required libraries with `yum install pcre pcre-devel zlib zlib-devel openssl openssl-devel make`
+- Now `./configure` will work but it will not have any configuration define
+- Use the below command to configure location for different options like logs and conf
+
+```sh
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
+```
+
+- Now a make file will be created use `make` and `make install` to install nginx
+- To start it use `nginx`
+- To check if nginx is running use `ps -ef | grep nginx`
