@@ -1,4 +1,4 @@
-Remote commandline tools
+Remote command line tools
 
 https://github.com/saintkim4/remocon
 
