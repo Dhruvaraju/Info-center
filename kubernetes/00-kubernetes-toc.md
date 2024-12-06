@@ -11,6 +11,7 @@
 - [Services in Kubernetes](09-services.md)
 - [Cloud Offerings with K8s](10-k8s-cloud.md)
 - [Kubeadm example](11-installing-using-kubeadm.md)
+- [docker vs containerd](14-containerd-docker.md)
 
 >[!Note]
 > kubectl command reference is present at [command-reference](kubectl-commands.md)
