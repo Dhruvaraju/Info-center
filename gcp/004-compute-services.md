@@ -155,6 +155,8 @@ flowchart LR
 	Cluster_management --> Autopilot
 	Cluster_management --> Standard_cluster
 	Cloud_Run --> containers
+	Cloud_Functions --> hosting_app_code --> v1_for_old_runtime
+	hosting_app_code --> v2_for_new_runtime
 	Anthos --> multicloud_cluster_management
 	
 ```
