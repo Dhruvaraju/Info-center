@@ -137,3 +137,25 @@ For creating:
 
 Cloud run for Anthos is to deploy work loads to Anthos clusters running on-premises or on Google cloud
 
+
+Summary:
+
+```mermaid
+flowchart LR
+	gcp_compute_services --> app_engine
+	gcp_compute_services --> GKE
+	gcp_compute_services --> Cloud_Functions
+	gcp_compute_services --> Cloud_Run
+	gcp_compute_services --> Anthos
+	app_engine --> Standard
+	app_engine --> Flexible
+	Standard --> V1
+	Standard --> v2
+	GKE --> Cluster_management
+	Cluster_management --> Autopilot
+	Cluster_management --> Standard_cluster
+	Cloud_Run --> containers
+	Anthos --> multicloud_cluster_management
+	
+```
+
